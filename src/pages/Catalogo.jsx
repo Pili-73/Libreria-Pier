@@ -128,16 +128,6 @@ function Catalogo() {
 
       </nav>
       
-      {showCategorias && (
-        <div className="dropdown-mobile">
-          <button onClick={() => filtrar("Todas")}>Todas</button>
-          <button onClick={() => filtrar("Fantasía")}>Fantasía</button>
-          <button onClick={() => filtrar("Terror")}>Terror</button>
-          <button onClick={() => filtrar("Ciencia")}>Ciencia</button>
-          <button onClick={() => filtrar("Infantil")}>Infantil</button>
-        </div>
-      )}
-
       <section className="ofertas">
         <h3>
           {categoriaSeleccionada === "Todas"
