@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "titulo": "El Señor de los Anillos",
+    "autor": "J.R.R. Tolkien",
+    "precio": "19,90",
+    "descripcion": "Una épica aventura en la Tierra Media para destruir el Anillo Único.",
+    "imagen": "images/lotr.jpg",
+    "genero": "Fantasía"
+  },
+  {
+    "id": 2,
+    "titulo": "1984",
+    "autor": "George Orwell",
+    "precio": "19,90",
+    "descripcion": "Una distopía sobre un régimen totalitario que controla cada aspecto de la vida.",
+    "imagen": "images/1984.jpg",
+    "genero": "Infantil"
+  },
+  {
+    "id": 3,
+    "titulo": "Cien Años de Soledad",
+    "autor": "Gabriel García Márquez",
+    "precio": "19,90",
+    "descripcion": "La historia de la familia Buendía a lo largo de siete generaciones.",
+    "imagen": "images/soledad.jpg",
+    "genero": "Infantil"
+  },
+  {
+    "id": 4,
+    "titulo": "Dune",
+    "autor": "Frank Herbert",
+    "precio": "19,90",
+    "descripcion": "El joven Paul Atreides lucha por sobrevivir en el planeta desértico Arrakis.",
+    "imagen": "images/dune.jpg",
+    "genero": "Fantasía"
+  },
+  {
+    "id": 5,
+    "titulo": "Harry Potter y la Piedra Filosofal",
+    "autor": "J.K. Rowling",
+    "precio": "19,90",
+    "descripcion": "El joven mago Harry descubre su verdadera identidad y entra en Hogwarts.",
+    "imagen": "images/hp1.jpg",
+    "genero": "Fantasía"
+  },
+  {
+    "id": 6,
+    "titulo": "El Hobbit",
+    "autor": "J.R.R. Tolkien",
+    "precio": "19,90",
+    "descripcion": "Bilbo Bolsón emprende un inesperado viaje lleno de peligros y aventuras.",
+    "imagen": "images/hobbit.jpg",
+    "genero": "Fantasía"
+  },
+  {
+    "id": 7,
+    "titulo": "Fahrenheit 451",
+    "autor": "Ray Bradbury",
+    "precio": "19,90",
+    "descripcion": "Una sociedad donde los libros están prohibidos y los bomberos los queman.",
+    "imagen": "images/fahrenheit.jpg",
+    "genero": "Ciencia"
+  },
+  {
+    "id": 8,
+    "titulo": "Drácula",
+    "autor": "Bram Stoker",
+    "precio": "19,90",
+    "descripcion": "La clásica historia del vampiro conde Drácula.",
+    "imagen": "images/dracula.jpg",
+    "genero": "Terror"
+  },
+  {
+    "id": 9,
+    "titulo": "El Principito",
+    "autor": "Antoine de Saint-Exupéry",
+    "precio": "19,90",
+    "descripcion": "Un viaje poético y filosófico a través de los ojos de un niño.",
+    "imagen": "images/principito.jpg",
+    "genero": "Infantil"
+  },
+  {
+    "id": 10,
+    "titulo": "Ready Player One",
+    "autor": "Ernest Cline",
+    "precio": "19,90",
+    "descripcion": "Una aventura futurista dentro de un mundo de realidad virtual llamado OASIS.",
+    "imagen": "images/ready.jpg",
+    "genero": "Ciencia"
+  }
+]

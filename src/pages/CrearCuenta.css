@@ -1,0 +1,68 @@
+*{
+    font-family: 'Merry';
+}
+.crear-root { 
+    width:360px; /*Si se amplia mucho la anchura se irán de sitio los inputs xd*/ 
+    margin:30px auto; 
+    background:#BEFAC2; 
+    padding:18px; 
+    border-radius:8px; 
+    text-align:center; 
+}
+
+/*Titulo crear cuenta, añadir fuentes, colores...*/
+.crear-root h2 { 
+    font-size:20px; 
+    font-weight:700; 
+    margin-bottom:8px; 
+}
+
+/*Contenedor de inputs*/
+.form { 
+    margin:20px auto; 
+    width:70%; 
+    align-items: center; 
+}
+
+/*Inputs y select*/
+.form input, .form select { 
+    margin-top: 5px; 
+    padding:10px; 
+    border-radius:6px; 
+    border:1px solid #ccc; 
+    font-size:14px; 
+}
+
+.form select { 
+    width: 100%; /*Le he cambiado la anchura para que sea igual que los inputs*/
+    text-align: left;
+}
+
+/*Contenedor de botones varios*/
+.actions { 
+    display:flex; 
+    gap:10px; 
+    justify-content:center; 
+    margin-top:10px; 
+}
+
+/*Botón crear*/
+.btn { 
+    background:#298A3B; 
+    color:#fff; 
+    padding:8px 12px; 
+    border-radius:6px; 
+    border:none; 
+    cursor:pointer; 
+    font-weight:700; 
+}
+
+.btn.cancelar { 
+    background:#777; 
+}
+
+/*Mensaje de error*/
+.error { 
+    color:red; 
+    margin-bottom:8px; 
+}

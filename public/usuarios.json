@@ -1,0 +1,5 @@
+[
+  {"nombre":"admin","contrasena":"admin","rol":"admin","ciudad":"Madrid"},
+  {"nombre":"pili","contrasena":"7373","rol":"user","ciudad":"Zaragoza"},
+  {"nombre":"ernis","contrasena":"1010","rol":"user","ciudad":"Zaragoza"}
+]

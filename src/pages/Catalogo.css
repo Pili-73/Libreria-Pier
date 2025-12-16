@@ -1,0 +1,412 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100vw;
+  max-width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Si usas un div root o app */
+#root, #app, .app, .catalogo-page {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.catalogo-container {
+  width: 100%;
+  max-width: 100vw;
+  min-height: 100vh;
+  font-family: 'Merry';
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Barra superior completamente responsiva - SIN DESBORDAMIENTO */
+/* Común para catalogo, libro y carrito */
+.topbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 15px clamp(15px, 5vw, 40px);
+  font-family: 'Merry';
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.linklike {
+  position: absolute;
+  right: clamp(15px, 5vw, 40px);
+  top: 50%;
+  transform: translateY(-50%);
+
+  font-size: clamp(14px, 2.5vw, 16px);
+  cursor: pointer;
+  color: #298A3B;
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
+
+/* Título centrado sin margin fijo */
+.topbar h1 {
+  color: #339999;
+  font-size: clamp(20px, 5vw, 36px);
+  font-weight: 700;
+  margin: 0;
+  text-align: center;
+}
+
+/* Menú totalmente adaptable - SIN DESBORDAMIENTO */
+/* Común para catalogo, libro y carrito */
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(10px, 2vw, 20px);
+  background-color: #1c7c2a;
+  padding: 12px clamp(10px, 3vw, 20px);
+  border-bottom: 3px solid #0f551c;
+  font-family: 'Merry';
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.menu button {
+  background-color: #2ba63d;
+  border: 2px solid #0f551c;
+  padding: clamp(6px, 1.5vw, 8px) clamp(12px, 3vw, 18px);
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  font-size: clamp(13px, 2.2vw, 15px);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Merry';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.menu button:hover {
+  background-color: #1e8b30;
+  transform: translateY(-2px);
+}
+
+.menu button:active {
+  transform: translateY(0);
+}
+
+/* Dropdown mejorado y centrado */
+.dropdown {
+  position: relative;
+  font-family: 'Merry';
+}
+
+.dropdown-content {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border: 2px solid #0f551c;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  min-width: 160px;
+  max-width: 90vw;
+  z-index: 100;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.dropdown-content button {
+  background: white;
+  border: none;
+  color: #1c7c2a;
+  padding: 12px 15px;
+  text-align: left;
+  font-weight: bold;
+  font-family: 'Merry';
+  font-size: clamp(13px, 2.2vw, 15px);
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dropdown-content button:hover {
+  background-color: #e6ffe6;
+}
+
+/* Sección de ofertas/categorías */
+.ofertas {
+  text-align: left;
+  font-size: clamp(16px, 3.5vw, 20px);
+  font-family: 'Merry';
+  padding: 15px clamp(15px, 5vw, 40px);
+  margin-top: 10px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Scroll de libros optimizado - CONTENIDO DENTRO DE LA PANTALLA */
+.libros-scroll {
+  display: flex;
+  gap: clamp(15px, 3vw, 20px);
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 20px clamp(15px, 5vw, 40px);
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #888 #eee;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+.libros-scroll::-webkit-scrollbar {
+  height: 10px;
+}
+
+.libros-scroll::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.libros-scroll::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.libros-scroll::-webkit-scrollbar-track {
+  background: #eee;
+  border-radius: 10px;
+}
+
+/* Tarjetas de libros completamente responsivas - IMÁGENES MÁS GRANDES */
+.libro-card {
+  min-width: clamp(160px, 20vw, 200px);
+  max-width: clamp(160px, 20vw, 200px);
+  flex-shrink: 0;
+  background: #BEFAC2;
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.libro-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.libro-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+  min-height: 240px;
+}
+
+.libro-card h3 {
+  font-size: clamp(13px, 2.2vw, 16px);
+  margin: 8px 0 4px;
+  font-family: 'Merry';
+  font-weight: 600;
+  color: #333;
+  line-height: 1.3;
+  min-height: 2.6em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.libro-card p {
+  font-size: clamp(12px, 2vw, 14px);
+  margin: 4px 0;
+  font-family: 'Merry';
+  color: #555;
+}
+
+.libro-card .precio {
+  font-weight: 700;
+  color: #298A3B;
+  font-size: clamp(14px, 2.5vw, 16px);
+  margin-top: 6px;
+}
+
+@font-face {
+  font-family: 'Merry';
+  src: url('../assets/MerriweatherLight.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ============================================
+   MEDIA QUERIES PARA DIFERENTES DISPOSITIVOS
+   ============================================ */
+
+/* Tablets grandes y pantallas medianas (hasta 1024px) */
+@media (max-width: 1024px) {
+  .topbar {
+    padding: 12px 25px;
+  }
+  
+  .menu {
+    gap: 12px;
+  }
+}
+
+/* Tablets (hasta 768px) */
+@media (max-width: 768px) {
+  .topbar {
+    padding: 10px 15px;
+    gap: 10px;
+  }
+  
+  .topbar h1 {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  
+  .topbar .linklike {
+    justify-self: center;
+    text-align: center;
+  }
+  
+  .menu {
+    gap: 8px;
+    padding: 10px 15px;
+  }
+  
+  .menu button {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+  
+  .dropdown-content {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Móviles grandes (hasta 640px) */
+@media (max-width: 640px) { 
+  .menu {
+    padding: 8px 10px;
+    gap: 6px;
+  }
+  
+  .menu button {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+  
+  .libro-card {
+    min-width: 150px;
+    max-width: 150px;
+    padding: 10px;
+  }
+  
+  .libro-card img {
+    min-height: 225px;
+  }
+  
+  .libros-scroll {
+    padding: 15px 10px;
+    gap: 12px;
+  }
+  
+  .ofertas {
+    padding: 10px 15px;
+    font-size: 16px;
+  }
+}
+
+/* Móviles pequeños (hasta 480px) */
+@media (max-width: 480px) {
+  .topbar h1 {
+    font-size: 20px;
+  }
+  
+  .menu {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding: 8px;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .menu::-webkit-scrollbar {
+    height: 4px;
+  }
+  
+  .libro-card {
+    min-width: 140px;
+    max-width: 140px;
+    padding: 8px;
+  }
+  
+  .libro-card img {
+    min-height: 210px;
+  }
+  
+  .libros-scroll {
+    padding: 12px 8px;
+  }
+  
+  .ofertas {
+    padding: 8px 12px;
+  }
+}
+
+/* Móviles muy pequeños (hasta 360px) */
+@media (max-width: 360px) {
+  .topbar h1 {
+    font-size: 20px;
+  }
+  
+  .libro-card {
+    min-width: 130px;
+    max-width: 130px;
+    padding: 6px;
+  }
+  
+  .libro-card img {
+    min-height: 195px;
+  }
+  
+  .menu button {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+}
