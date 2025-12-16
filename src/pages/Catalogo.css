@@ -318,6 +318,17 @@ body {
   .topbar .linklike {
     justify-self: center;
     text-align: center;
+    font-size: 14px;
+  }
+  
+  .user-box {
+    flex-direction: column;
+    align-items: flex-end;   /* mantiene todo alineado a la derecha */
+    gap: 4px;
+  }
+
+  .usuario-label {
+    font-size: 12px;
   }
   
   .menu {
@@ -338,6 +349,7 @@ body {
 
 /* Móviles grandes (hasta 640px) */
 @media (max-width: 640px) { 
+  
   .menu {
     padding: 8px 10px;
     gap: 6px;
