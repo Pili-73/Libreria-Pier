@@ -75,6 +75,7 @@ export default function CrearCuenta() {
       <div className="form">
         <input 
           placeholder="Nombre de usuario" 
+          type="text"
           value={usuario} 
           onChange={e => setUsuario(e.target.value)}
           disabled={loading}

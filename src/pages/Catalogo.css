@@ -362,6 +362,18 @@ body {
   .menu::-webkit-scrollbar {
     height: 4px;
   }
+
+  /* DROPDOWN MÁS PEQUEÑO EN MÓVIL */
+  .dropdown-content {
+    min-width: 120px;
+    max-width: 200px;
+    font-size: 12px;
+  }
+
+  .dropdown-content button {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
   
   .libro-card {
     min-width: 140px;
@@ -386,6 +398,17 @@ body {
 @media (max-width: 360px) {
   .topbar h1 {
     font-size: 20px;
+  }
+
+  /* DROPDOWN AÚN MÁS PEQUEÑO */
+  .dropdown-content {
+    min-width: 100px;
+    max-width: 150px;
+  }
+
+  .dropdown-content button {
+    padding: 6px 8px;
+    font-size: 11px;
   }
   
   .libro-card {
