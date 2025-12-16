@@ -3,14 +3,20 @@ import "./Catalogo.css";
 import LibroCard from "../components/LibroCard.jsx";
 import { useNavigate } from "react-router-dom";
 import { useBooks } from "../components/useBooks";
+import { Session } from "../utils/auth.js";
 
 function Catalogo() {
   const navigate = useNavigate();
+  const [usuario, setUsuario] = useState(null);
   const { libros, loading, error } = useBooks();
 
   const [librosFiltrados, setLibrosFiltrados] = useState([]);
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("Todas");
   const [showCategorias, setShowCategorias] = useState(false);
+
+  useEffect(() => {
+  setUsuario(Session.get());
+  }, []);
 
   // Filtrar libros cuando cambia la categoría o se cargan los libros
   useEffect(() => {
@@ -61,11 +67,31 @@ function Catalogo() {
         <h1>LIBRERÍA PIER</h1>
 
         <div className="top-actions">
-          <button className="linklike" onClick={() => navigate("/login")}>
-            Iniciar sesión
-          </button>
+          {usuario ? (
+           <div className="user-box">
+            <>
+              <span className="usuario-label">
+                Usuario: {usuario?.nombre}
+              </span>
+
+              <button
+                className="linklikeCerrar" onClick={() => {Session.clear(); navigate("/login")}}
+              >
+                Cerrar sesión
+              </button>
+            </>
+          </div>
+          ) : (
+            <button
+              className="linklikeIniciar"
+              onClick={() => navigate("/login")}
+            >
+              Iniciar sesión
+            </button>
+          )}
         </div>
       </header>
+
 
       <nav className={`menu ${showCategorias ? "open" : ""}`}>
 
@@ -124,7 +150,7 @@ function Catalogo() {
           Más populares
         </button>
 
-        <button onClick={() => navigate("/carrito")}>Mis libros 🛒</button>
+        <button onClick={() => navigate("/carrito")}>Carrito 🛒</button>
 
       </nav>
       

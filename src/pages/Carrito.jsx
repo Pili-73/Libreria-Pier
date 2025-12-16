@@ -8,8 +8,9 @@ import "./Carrito.css";
 
 export default function Carrito() {
   const navigate = useNavigate();
-  const { cart, loading, updateQuantity, removeFromCart, clearCart, getTotal } = useCart();
+  const {cart, loading, updateQuantity, removeFromCart, clearCart, getTotal } = useCart();
   const [processing, setProcessing] = useState(false);
+  const [usuario, setUsuario] = useState(null);
 
   // Verificar si hay sesión
   const user = Session.get();
@@ -19,7 +20,7 @@ export default function Carrito() {
         <header className="topbar">
           <h1>LIBRERÍA PIER</h1>
           <div className="top-actions">
-            <button className="linklike" onClick={() => navigate("/login")}>
+            <button className="linklikeIniciar" onClick={() => navigate("/login")}>
               Iniciar sesión
             </button>
           </div>
@@ -57,18 +58,25 @@ export default function Carrito() {
   };
 
   const total = getTotal();
-
+  
   return (
     <div className="carrito-container">
       <header className="topbar">
         <h1>LIBRERÍA PIER</h1>
         <div className="top-actions">
-          <button className="linklike" onClick={() => {
-            Session.clear();
-            navigate("/login");
-          }}>
-            Cerrar sesión
-          </button>
+          <div className="user-box">
+            <>
+              <span className="usuario-label">
+                Usuario: {user?.nombre}
+              </span>
+
+              <button
+                className="linklikeCerrar" onClick={() => {Session.clear(); navigate("/login")}}
+              >
+                Cerrar sesión
+              </button>
+            </>
+          </div>
         </div>
       </header>
 
@@ -76,7 +84,7 @@ export default function Carrito() {
         <button onClick={() => navigate("/")}>Inicio</button>
         <button>Categorías</button>
         <button>Más populares</button>
-        <button onClick={() => navigate("/carrito")}>Mis libros 🛒</button>
+        <button onClick={() => navigate("/carrito")}>Carrito 🛒</button>
       </nav>
 
       <div className="carrito-content">

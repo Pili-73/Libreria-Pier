@@ -9,6 +9,7 @@ export default function Libro() {
   const { id } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
+  const [usuario, setUsuario] = useState(null);
   const { getLibroById, updateLibro, deleteLibro } = useBooks();
   const { addToCart } = useCart();
 
@@ -22,6 +23,10 @@ export default function Libro() {
     descripcion: "", 
     precio: "" 
   });
+
+  useEffect(() => {
+  setUsuario(Session.get());
+  }, []);
 
   // Cargar datos del libro si no vienen del state
   useEffect(() => {
@@ -160,10 +165,30 @@ export default function Libro() {
     <div className="libro-root">
       <header className="topbar">
         <h1>LIBRERÍA PIER</h1>
+
         <div className="top-actions">
-          <button className="linklike" onClick={() => navigate("/login")}>
-            Iniciar sesión
-          </button>
+          {usuario ? (
+           <div className="user-box">
+            <>
+              <span className="usuario-label">
+                Usuario: {usuario?.nombre}
+              </span>
+
+              <button
+                className="linklikeCerrar" onClick={() => {Session.clear(); navigate("/login")}}
+              >
+                Cerrar sesión
+              </button>
+            </>
+            </div>
+          ) : (
+            <button
+              className="linklikeIniciar"
+              onClick={() => navigate("/login")}
+            >
+              Iniciar sesión
+            </button>
+          )}
         </div>
       </header>
 
@@ -173,7 +198,7 @@ export default function Libro() {
           <button>Categorías</button>
         </div>
         <button>Más populares</button>
-        <button onClick={() => navigate("/carrito")}>Mis libros 🛒</button>
+        <button onClick={() => navigate("/carrito")}>Carrito 🛒</button>
       </nav>
 
       <div className="detalle">

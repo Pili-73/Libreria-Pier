@@ -55,7 +55,32 @@ body {
   box-sizing: border-box;
 }
 
-.linklike {
+.user-box {
+  position: absolute;
+  right: clamp(15px, 5vw, 40px);
+  top: 50%;
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.usuario-label {
+  font-size: clamp(13px, 2.5vw, 15px);
+  font-weight: 600;
+  color: #333;
+}
+
+.linklikeCerrar {
+  font-size: clamp(14px, 2.5vw, 16px);
+  cursor: pointer;
+  color: #298A3B;
+  text-decoration: underline;
+}
+
+.linklikeIniciar {
   position: absolute;
   right: clamp(15px, 5vw, 40px);
   top: 50%;
@@ -65,7 +90,6 @@ body {
   cursor: pointer;
   color: #298A3B;
   text-decoration: underline;
-  white-space: nowrap;
 }
 
 
