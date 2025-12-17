@@ -11,7 +11,7 @@ function Catalogo() {
   const { libros, loading, error } = useBooks();
 
   const [librosFiltrados, setLibrosFiltrados] = useState([]);
-  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("Todas");
+  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("Ofertas");
   const [showCategorias, setShowCategorias] = useState(false);
 
   useEffect(() => {
@@ -20,13 +20,12 @@ function Catalogo() {
 
   // Filtrar libros cuando cambia la categoría o se cargan los libros
   useEffect(() => {
-    if (categoriaSeleccionada === "Todas") {
+    if (categoriaSeleccionada === "Ofertas") {
+      setLibrosFiltrados(libros.filter((l) => l.oferta === true));
+    } else if (categoriaSeleccionada === "Todas") {
       setLibrosFiltrados(libros);
     } else if (categoriaSeleccionada === "Más populares") {
-      // Ordenar por popularidad si existe ese campo, o por id descendente
-      setLibrosFiltrados(
-        [...libros].sort((a, b) => (b.popularidad || b.id) - (a.popularidad || a.id))
-      );
+      setLibrosFiltrados(libros.filter((l) => l.popular === true));
     } else {
       setLibrosFiltrados(
         libros.filter((l) => l.genero === categoriaSeleccionada)
@@ -96,7 +95,7 @@ function Catalogo() {
       <nav className={`menu ${showCategorias ? "open" : ""}`}>
 
         <button onClick={() => {
-          setCategoriaSeleccionada("Todas");
+          setCategoriaSeleccionada("Ofertas");
           setShowCategorias(false);
         }}>
           Inicio
@@ -156,7 +155,7 @@ function Catalogo() {
       
       <section className="ofertas">
         <h3>
-          {categoriaSeleccionada === "Todas"
+          {categoriaSeleccionada === "Ofertas"
             ? "Ofertas"
             : categoriaSeleccionada === "Más populares"
             ? "Libros más vendidos"
