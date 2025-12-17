@@ -388,7 +388,6 @@ body {
   }
 
   .menu {
-    justify-content: flex-start;
     flex-wrap: nowrap;
     padding: 8px;
     -webkit-overflow-scrolling: touch;
